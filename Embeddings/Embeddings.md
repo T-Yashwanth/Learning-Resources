@@ -127,6 +127,33 @@ A transformer-based model like BERT would process these sentences and generate e
 - **Sentence-BERT (SBERT)**: A modification of BERT specifically designed for generating high-quality sentence embeddings more efficiently
 
 
+# BERT(Bidirectional Encoder Representations from Transformers)
+[BERT](https://medium.com/@davidlfliang/intro-getting-started-with-text-embeddings-using-bert-9f8c3b98dee6https://medium.com/@davidlfliang/intro-getting-started-with-text-embeddings-using-bert-9f8c3b98dee6).
+BERT uses a transformer architecture to understand the context of words within a sentence bidirectionally, meaning it considers both the left and right context of each word. This bidirectional approach allows BERT to capture more nuanced and contextually rich representations of sentences.
+
+The process of generating BERT sentence embeddings involves the following steps:
+
+- **Tokenization**: The input sentence is broken down into tokens. BERT uses `WordPiece tokenization`, which splits words into `subwords` to handle `out-of-vocabulary` words effectively.
+- **Encoding**: These tokens are then fed into the BERT model. BERT `adds special tokens` to the input:
+    - **[CLS]**: A classification token added at the beginning of the sentence, which is used to represent the entire sentence.
+    - **[SEP]**: A separator token added at the end of the sentence.
+- **Embedding Generation**: BERT processes the tokens and generates contextualized embeddings for each token. The embedding of the [CLS] token is often used as the sentence embedding because it is designed to capture the overall meaning of the sentence.
+- **Pooling (Optional)**: While the [CLS] token embedding is commonly used, other pooling methods can be applied to generate the final sentence embedding:
+    - **Mean Pooling**: Averaging the embeddings of all tokens in the sentence.
+    - **Max Pooling**: Taking the maximum value across each dimension of the token embeddings.
+
+#### Example
+
+Consider the sentence: "The cat is sleeping on the couch."\
+Tokenization: [CLS] The cat is sleeping on the couch [SEP]\
+Encoding: BERT processes these tokens and generates embeddings for each.\
+Sentence Embedding: The embedding of the [CLS] token is used as the sentence embedding.
+
+
+
+
+
 > [!NOTE]\
 > Useful References.\
->[What Are Word and Sentence Embeddings](https://cohere.com/llmu/sentence-word-embeddings).
+>[What Are Word and Sentence Embeddings](https://cohere.com/llmu/sentence-word-embeddings).\
+>[BERT](https://medium.com/@davidlfliang/intro-getting-started-with-text-embeddings-using-bert-9f8c3b98dee6https://medium.com/@davidlfliang/intro-getting-started-with-text-embeddings-using-bert-9f8c3b98dee6).
